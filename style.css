@@ -130,3 +130,19 @@ h2 {
     transform: translateY(0);
   }
 }
+.quiz-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.quiz-title {
+  font-size: 36px;
+  font-weight: 800;
+  margin-bottom: 6px;
+  color: #0f172a;
+}
+
+.quiz-subtitle {
+  font-size: 15px;
+  color: #475569;
+}

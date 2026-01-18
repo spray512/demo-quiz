@@ -1,101 +1,101 @@
 const questions = [
   {
-    question: "What does HTML stand for?",
+    question: "Who is the current Prime Minister of India (2025)?",
     options: [
-      "Hyper Text Markup Language",
-      "High Text Machine Language",
-      "Hyperlinks and Text Markup Language",
-      "Home Tool Markup Language"
+      "Narendra Modi",
+      "Rahul Gandhi",
+      "Amit Shah",
+      "Arvind Kejriwal"
     ],
     answer: 0
   },
   {
-    question: "Which language is used for styling web pages?",
+    question: "Which country hosted the G20 Summit in 2023?",
     options: [
-      "HTML",
-      "JQuery",
-      "CSS",
-      "XML"
+      "USA",
+      "India",
+      "Brazil",
+      "Indonesia"
+    ],
+    answer: 1
+  },
+  {
+    question: "ISRO successfully launched which mission to study the Sun in 2023?",
+    options: [
+      "Chandrayaan-3",
+      "Aditya-L1",
+      "Gaganyaan",
+      "Mangalyaan-2"
+    ],
+    answer: 1
+  },
+  {
+    question: "Which Indian state recently became the first to implement Uniform Civil Code (UCC)?",
+    options: [
+      "Uttar Pradesh",
+      "Assam",
+      "Uttarakhand",
+      "Gujarat"
     ],
     answer: 2
   },
   {
-    question: "Which of the following is NOT a programming language?",
+    question: "Who is the current President of India (2025)?",
     options: [
-      "Python",
-      "Java",
-      "HTML",
-      "C++"
+      "Pratibha Patil",
+      "Droupadi Murmu",
+      "Ram Nath Kovind",
+      "Amit Shah"
     ],
-    answer: 2
+    answer: 1
   },
   {
-    question: "Inside which HTML element do we put JavaScript?",
+    question: "Which country officially joined BRICS as a new member in 2024?",
     options: [
-      "<javascript>",
-      "<js>",
-      "<script>",
-      "<code>"
-    ],
-    answer: 2
-  },
-  {
-    question: "What does CSS stand for?",
-    options: [
-      "Creative Style Sheets",
-      "Colorful Style Sheets",
-      "Cascading Style Sheets",
-      "Computer Style Sheets"
-    ],
-    answer: 2
-  },
-  {
-    question: "Which symbol is used for comments in JavaScript?",
-    options: [
-      "//",
-      "<!-- -->",
-      "#",
-      "**"
+      "Saudi Arabia",
+      "Argentina",
+      "France",
+      "Japan"
     ],
     answer: 0
   },
   {
-    question: "Which company developed JavaScript?",
+    question: "What was India’s GDP growth rate approximately in FY 2023–24?",
     options: [
+      "3%",
+      "5%",
+      "7%",
+      "10%"
+    ],
+    answer: 2
+  },
+  {
+    question: "Which Indian city hosted the 2024 National Games?",
+    options: [
+      "Ahmedabad",
+      "Bhopal",
+      "Dehradun",
+      "Raipur"
+    ],
+    answer: 2
+  },
+  {
+    question: "Which tech company launched the AI model named ‘Gemini’?",
+    options: [
+      "OpenAI",
       "Microsoft",
-      "Sun Microsystems",
-      "Netscape",
-      "Oracle"
+      "Google",
+      "Meta"
     ],
     answer: 2
   },
   {
-    question: "How do you write 'Hello World' in an alert box?",
+    question: "Which country became the world’s most populous nation, surpassing China?",
     options: [
-      "msg('Hello World')",
-      "alert('Hello World')",
-      "alertBox('Hello World')",
-      "msgBox('Hello World')"
-    ],
-    answer: 1
-  },
-  {
-    question: "Which HTML attribute is used to define inline styles?",
-    options: [
-      "class",
-      "style",
-      "font",
-      "styles"
-    ],
-    answer: 1
-  },
-  {
-    question: "Which method converts JSON data to a JavaScript object?",
-    options: [
-      "JSON.parse()",
-      "JSON.stringify()",
-      "JSON.convert()",
-      "JSON.object()"
+      "India",
+      "USA",
+      "Indonesia",
+      "Nigeria"
     ],
     answer: 0
   }

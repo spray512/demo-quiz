@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Quiz Result</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div id="quiz-container">
+    <h2>Your Quiz Result</h2>
+    <p id="final-score">Score: </p>
+  </div>
+
+  <script>
+    // Prevent going back to quiz
+    history.pushState(null, null, location.href);
+    window.onpopstate = function () {
+      history.pushState(null, null, location.href);
+    };
+
+    const score = sessionStorage.getItem("finalScore");
+
+    if (score === null) {
+      window.location.href = "index.html";
+    } else {
+      document.getElementById("final-score").innerText = `Score: ${score} / 10`;
+    }
+  </script>
+
+</body>
+</html>

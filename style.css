@@ -1,0 +1,33 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+}
+
+#quiz-container {
+  width: 600px;
+  margin: 80px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 6px;
+}
+
+#top-bar {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+#question-text {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.option {
+  margin-bottom: 10px;
+}
+
+#next-btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+}

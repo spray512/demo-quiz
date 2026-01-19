@@ -7,6 +7,7 @@
 
 /* -------- BODY -------- */
 body {
+  overflow-x: hidden;
   font-family: "Segoe UI", Roboto, Arial, sans-serif;
   background: linear-gradient(135deg, #eef2f3, #d9e2ec);
   min-height: 100vh;
@@ -247,5 +248,87 @@ h2 {
 .instruction-item:hover {
   background: #ffffff;
   border-color: #e5e7eb;
+}
+/* -------- MOBILE RESPONSIVE -------- */
+@media (max-width: 768px) {
+
+  /* Reduce top spacing */
+  .page-wrapper,
+  .result-wrapper,
+  .analysis-wrapper {
+    padding: 30px 12px;
+  }
+
+  /* Quiz card */
+  #quiz-container {
+    padding: 20px 16px;
+    border-radius: 12px;
+  }
+
+  /* Question text */
+  #question-text {
+    font-size: 18px;
+    line-height: 1.4;
+  }
+
+  /* Option cards */
+  .option {
+    padding: 14px 14px;
+    font-size: 15px;
+  }
+
+  .option strong {
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+  }
+
+  /* Timer badge */
+  #timer-badge {
+    padding: 8px 12px;
+    font-size: 14px;
+    min-width: 70px;
+  }
+
+  /* Progress bar spacing */
+  #progress-bar-wrapper {
+    margin-bottom: 20px;
+  }
+
+  /* Result page */
+  .result-message {
+    font-size: 22px;
+  }
+
+  .score-card .score {
+    font-size: 40px;
+  }
+
+  .summary-card {
+    padding: 14px;
+    font-size: 15px;
+  }
+
+  .primary-btn,
+  .secondary-btn,
+  .try-again-btn,
+  .back-btn {
+    font-size: 16px;
+    padding: 14px;
+  }
+
+  /* Analysis page */
+  .analysis-title {
+    font-size: 24px;
+  }
+
+  .question-text {
+    font-size: 16px;
+  }
+
+  .analysis-option {
+    font-size: 15px;
+    padding: 10px 12px;
+  }
 }
 

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Quiz</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="quiz-header">
+    <h1 class="quiz-title">Current Affairs Quiz</h1>
+    <p class="quiz-subtitle">
+      10 Questions · 10 Seconds Each · +1 / -0.25
+    </p>
+  </div>
+
+
+  <div id="quiz-container">
+
+    <div id="top-bar">
+      <div id="question-number">Question 1 / 10</div>
+      <div id="timer">Time Left: 10s</div>
+    </div>
+
+    <div id="question-text">
+      Question text goes here
+    </div>
+
+    <div id="options">
+      <!-- Options injected by JS -->
+    </div>
+
+    <button id="next-btn" disabled>Next</button>
+
+  </div>
+
+  <!-- Order matters -->
+  <script src="questions.js"></script>
+  <script src="quiz.js"></script>
+
+</body>
+</html>

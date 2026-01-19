@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <title>Quiz Result</title>
   <link rel="stylesheet" href="style.css" />
+
   <style>
     .result-wrapper {
       max-width: 520px;
@@ -92,9 +93,9 @@
       color: #495057;
     }
 
-    .try-again-btn {
+    .primary-btn {
       width: 100%;
-      margin-top: 30px;
+      margin-top: 25px;
       padding: 16px;
       font-size: 18px;
       font-weight: 700;
@@ -106,8 +107,26 @@
       transition: all 0.2s ease;
     }
 
-    .try-again-btn:hover {
+    .primary-btn:hover {
       background: #364fc7;
+    }
+
+    .secondary-btn {
+      width: 100%;
+      margin-top: 15px;
+      padding: 16px;
+      font-size: 18px;
+      font-weight: 700;
+      border-radius: 12px;
+      border: none;
+      background: #0ca678;
+      color: white;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .secondary-btn:hover {
+      background: #099268;
     }
   </style>
 </head>
@@ -117,17 +136,19 @@
 
     <div class="result-icon">🏆</div>
 
+    <!-- Dynamic message -->
     <div id="result-message" class="result-message">
       Result Message
     </div>
 
+    <!-- SCORE CARD -->
     <div class="score-card">
       <div class="label">Your Score</div>
       <div id="final-score" class="score">0.00</div>
       <div class="out-of">out of 10</div>
     </div>
 
-    <!-- SUMMARY -->
+    <!-- SUMMARY CARDS -->
     <div class="summary-card correct-card">
       <div class="left">✔ Correct</div>
       <div class="right" id="correct-summary">0 × (+1)</div>
@@ -143,8 +164,13 @@
       <div class="right" id="unattempted-summary">0</div>
     </div>
 
-    <button class="try-again-btn" onclick="restartQuiz()">
+    <!-- BUTTONS -->
+    <button class="primary-btn" onclick="restartQuiz()">
       🔄 Try Again
+    </button>
+
+    <button class="secondary-btn" onclick="goToAnalysis()">
+      📊 View Analysis
     </button>
 
   </div>
@@ -168,7 +194,7 @@
     // Set score
     document.getElementById("final-score").innerText = score.toFixed(2);
 
-    // Set summary
+    // Set summaries
     document.getElementById("correct-summary").innerText = `${correct} × (+1)`;
     document.getElementById("wrong-summary").innerText = `${wrong} × (-0.25)`;
     document.getElementById("unattempted-summary").innerText = `${unattempted}`;
@@ -192,6 +218,10 @@
     function restartQuiz() {
       sessionStorage.clear();
       window.location.href = "index.html";
+    }
+
+    function goToAnalysis() {
+      window.location.href = "analysis.html";
     }
   </script>
 

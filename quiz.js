@@ -1,3 +1,4 @@
+let userAnswers = [];
 let correctCount = 0;
 let wrongCount = 0;
 let unattemptedCount = 0;
@@ -136,8 +137,10 @@ function submitAnswer() {
   const selectedOption = document.querySelector("input[name='option']:checked");
   const correctAnswer = shuffledQuestions[currentQuestionIndex].answer;
 
-  if (selectedOption) {
-  const selectedIndex = parseInt(selectedOption.value);
+  let selectedIndex = null;
+
+if (selectedOption) {
+  selectedIndex = parseInt(selectedOption.value);
 
   if (selectedIndex === correctAnswer) {
     score += 1;
@@ -147,9 +150,16 @@ function submitAnswer() {
     wrongCount++;
   }
 } else {
-  // unattempted
   unattemptedCount++;
 }
+
+// Store full answer data for analysis
+userAnswers.push({
+  question: shuffledQuestions[currentQuestionIndex].question,
+  options: shuffledQuestions[currentQuestionIndex].options,
+  correctIndex: correctAnswer,
+  selectedIndex: selectedIndex
+});
 
 
   currentQuestionIndex++;
@@ -162,8 +172,10 @@ function submitAnswer() {
     sessionStorage.setItem("correctCount", correctCount);
     sessionStorage.setItem("wrongCount", wrongCount);
     sessionStorage.setItem("unattemptedCount", unattemptedCount);
+    sessionStorage.setItem("userAnswers", JSON.stringify(userAnswers));
 
     window.location.href = "result.html";
+
 
   }
 }

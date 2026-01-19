@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Quiz Analysis</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .analysis-wrapper {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 50px 20px;
+    }
+
+    .analysis-title {
+      text-align: center;
+      font-size: 32px;
+      font-weight: 800;
+      margin-bottom: 40px;
+      color: #0f172a;
+    }
+
+    .question-card {
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 24px;
+      margin-bottom: 30px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    }
+
+    .question-text {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: #111827;
+    }
+
+    .analysis-option {
+      padding: 12px 14px;
+      border-radius: 10px;
+      border: 2px solid #e5e7eb;
+      margin-bottom: 10px;
+      font-size: 16px;
+      font-weight: 600;
+      background: #f9fafb;
+    }
+
+    /* Correct answer */
+    .analysis-option.correct {
+      color: #2f9e44;
+      border-color: #2f9e44;
+      background: #ebfbee;
+    }
+
+    /* Wrong selected answer */
+    .analysis-option.wrong {
+      color: #e03131;
+      border-color: #e03131;
+      background: #fff5f5;
+    }
+
+    .back-btn {
+      display: block;
+      width: 100%;
+      margin-top: 40px;
+      padding: 16px;
+      font-size: 18px;
+      font-weight: 700;
+      border-radius: 12px;
+      border: none;
+      background: #4c5fd5;
+      color: white;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="analysis-wrapper">
+
+    <div class="analysis-title">Full Answer Analysis</div>
+
+    <div id="analysis-container"></div>
+
+    <button class="back-btn" onclick="goBack()">⬅ Back to Result</button>
+
+  </div>
+
+  <script>
+    const data = JSON.parse(sessionStorage.getItem("userAnswers"));
+
+    if (!data) {
+      window.location.href = "index.html";
+    }
+
+    const container = document.getElementById("analysis-container");
+
+    data.forEach((item, qIndex) => {
+      const card = document.createElement("div");
+      card.classList.add("question-card");
+
+      const qText = document.createElement("div");
+      qText.classList.add("question-text");
+      qText.innerText = `Q${qIndex + 1}. ${item.question}`;
+      card.appendChild(qText);
+
+      item.options.forEach((opt, index) => {
+        const optDiv = document.createElement("div");
+        optDiv.classList.add("analysis-option");
+
+        optDiv.innerText = `${String.fromCharCode(65 + index)}. ${opt}`;
+
+        // Correct option
+        if (index === item.correctIndex) {
+          optDiv.classList.add("correct");
+        }
+
+        // Wrong selected option
+        if (item.selectedIndex !== null && index === item.selectedIndex && index !== item.correctIndex) {
+          optDiv.classList.add("wrong");
+        }
+
+        card.appendChild(optDiv);
+      });
+
+      container.appendChild(card);
+    });
+
+    function goBack() {
+      window.location.href = "result.html";
+    }
+  </script>
+
+</body>
+</html>

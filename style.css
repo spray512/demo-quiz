@@ -228,3 +228,24 @@ h2 {
 #progress-bar.danger {
   background: #fa5252;
 }
+/* -------- INSTRUCTION ITEMS (WELCOME PAGE ONLY) -------- */
+.instruction-item {
+  padding: 16px 18px;
+  border-radius: 12px;
+  border: 2px solid #e5e7eb;
+  margin-bottom: 14px;
+  background: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1f2933;
+
+  /* Critical: make it feel non-clickable */
+  cursor: default;
+}
+
+/* Disable any hover effect */
+.instruction-item:hover {
+  background: #ffffff;
+  border-color: #e5e7eb;
+}
+

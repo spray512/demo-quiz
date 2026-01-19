@@ -2,39 +2,52 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Quiz</title>
+  <title>Current Affairs Quiz</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <div class="quiz-header">
-    <h1 class="quiz-title">Current Affairs Quiz</h1>
-    <p class="quiz-subtitle">
-      10 Questions · 10 Seconds Each · +1 / -0.25
-    </p>
+  <div class="page-wrapper">
+
+    <!-- QUIZ CARD ONLY -->
+    <div id="quiz-container">
+
+      <!-- TOP BAR -->
+      <div id="top-bar">
+
+        <div id="question-number">
+          Question <strong><span id="q-current">1</span></strong>/<span id="q-total">10</span>
+        </div>
+
+        <div id="timer-badge">
+          <span id="time-left">10</span> sec
+        </div>
+
+      </div>
+
+      <!-- PROGRESS BAR -->
+      <div id="progress-bar-wrapper">
+        <div id="progress-bar"></div>
+      </div>
+
+      <!-- QUESTION -->
+      <div id="question-text">
+        Question text goes here
+      </div>
+
+      <!-- OPTIONS -->
+      <div id="options">
+        <!-- Options injected by JS -->
+      </div>
+
+      <!-- NEXT BUTTON -->
+      <button id="next-btn" disabled>Next</button>
+
+    </div>
+
   </div>
 
-
-  <div id="quiz-container">
-
-    <div id="top-bar">
-      <div id="question-number">Question 1 / 10</div>
-      <div id="timer">Time Left: 10s</div>
-    </div>
-
-    <div id="question-text">
-      Question text goes here
-    </div>
-
-    <div id="options">
-      <!-- Options injected by JS -->
-    </div>
-
-    <button id="next-btn" disabled>Next</button>
-
-  </div>
-
-  <!-- Order matters -->
+  <!-- SCRIPTS -->
   <script src="questions.js"></script>
   <script src="quiz.js"></script>
 

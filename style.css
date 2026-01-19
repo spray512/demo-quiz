@@ -82,33 +82,55 @@ body {
 .option {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 14px 16px;
-  border-radius: 10px;
-  border: 1px solid #e5e7eb;
-  margin-bottom: 12px;
+  gap: 14px;
+  padding: 16px 18px;
+  border-radius: 12px;
+  border: 2px solid #e5e7eb;
+  margin-bottom: 14px;
   cursor: pointer;
+  background: #ffffff;
+  transition: all 0.2s ease;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* Hover state */
+.option:hover {
+  background: #f5f7ff;
+  border-color: #a5b4fc;
+}
+
+/* Selected state */
+.option.selected {
+  background: #f0f4ff;
+  border-color: #3b5bdb;
+  box-shadow: 0 0 0 1px rgba(59, 91, 219, 0.2);
+}
+
+/* Letter circle (A/B/C/D) */
+.option strong {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #f1f3f5;
+  color: #1f2933;
+  font-weight: 700;
+  flex-shrink: 0;
   transition: all 0.2s ease;
 }
 
-.option:hover {
-  background: #f1f5f9;
-  border-color: #94a3b8;
+/* Letter circle when selected */
+.option.selected strong {
+  background: #3b5bdb;
+  color: #ffffff;
 }
 
+/* Hide default radio visually but keep it accessible */
 .option input[type="radio"] {
-  transform: scale(1.2);
-  cursor: pointer;
-}
-
-.option label {
-  cursor: pointer;
-}
-
-/* highlight selected option */
-.option input[type="radio"]:checked + label {
-  font-weight: 600;
-  color: #0f172a;
+  display: none;
 }
 
 /* -------- NEXT BUTTON -------- */
@@ -158,4 +180,51 @@ h2 {
     opacity: 1;
     transform: translateY(0);
   }
+}
+/* -------- TOP BAR UPGRADE -------- */
+#top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+#timer-badge {
+  background: #e6fcf5;
+  color: #12b886;
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-weight: 700;
+  min-width: 90px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+/* danger state */
+#timer-badge.danger {
+  background: #ffe3e3;
+  color: #c92a2a;
+}
+
+/* -------- PROGRESS BAR -------- */
+#progress-bar-wrapper {
+  width: 100%;
+  height: 8px;
+  background: #e5e7eb;
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+
+#progress-bar {
+  height: 100%;
+  width: 100%;
+  background: #20c997;
+  transition: width 1s linear, background 0.3s ease;
+}
+
+#progress-bar.danger {
+  background: #fa5252;
 }

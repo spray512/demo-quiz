@@ -4,27 +4,194 @@
   <meta charset="UTF-8" />
   <title>Quiz Result</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    .result-wrapper {
+      max-width: 520px;
+      margin: 0 auto;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .result-icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: #5c7cfa;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      color: white;
+      font-size: 36px;
+    }
+
+    .result-message {
+      font-size: 28px;
+      font-weight: 800;
+      margin-bottom: 30px;
+    }
+
+    .score-card {
+      background: #f8f9fa;
+      border-radius: 14px;
+      padding: 25px;
+      margin-bottom: 30px;
+    }
+
+    .score-card .label {
+      color: #6b7280;
+      font-size: 14px;
+      margin-bottom: 6px;
+    }
+
+    .score-card .score {
+      font-size: 48px;
+      font-weight: 800;
+      color: #5c7cfa;
+    }
+
+    .score-card .out-of {
+      color: #6b7280;
+      margin-top: 4px;
+    }
+
+    .summary-card {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 18px;
+      border-radius: 12px;
+      margin-bottom: 14px;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .summary-card .left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .summary-card .right {
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .correct-card {
+      background: #e6fcf5;
+      color: #0ca678;
+    }
+
+    .wrong-card {
+      background: #fff5f5;
+      color: #e03131;
+    }
+
+    .unattempted-card {
+      background: #f1f3f5;
+      color: #495057;
+    }
+
+    .try-again-btn {
+      width: 100%;
+      margin-top: 30px;
+      padding: 16px;
+      font-size: 18px;
+      font-weight: 700;
+      border-radius: 12px;
+      border: none;
+      background: #4c5fd5;
+      color: white;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .try-again-btn:hover {
+      background: #364fc7;
+    }
+  </style>
 </head>
 <body>
 
-  <div id="quiz-container">
-    <h2>Your Quiz Result</h2>
-    <p id="final-score">Score: </p>
+  <div class="result-wrapper">
+
+    <div class="result-icon">🏆</div>
+
+    <div id="result-message" class="result-message">
+      Result Message
+    </div>
+
+    <div class="score-card">
+      <div class="label">Your Score</div>
+      <div id="final-score" class="score">0.00</div>
+      <div class="out-of">out of 10</div>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="summary-card correct-card">
+      <div class="left">✔ Correct</div>
+      <div class="right" id="correct-summary">0 × (+1)</div>
+    </div>
+
+    <div class="summary-card wrong-card">
+      <div class="left">✖ Wrong</div>
+      <div class="right" id="wrong-summary">0 × (-0.25)</div>
+    </div>
+
+    <div class="summary-card unattempted-card">
+      <div class="left">➖ Unattempted</div>
+      <div class="right" id="unattempted-summary">0</div>
+    </div>
+
+    <button class="try-again-btn" onclick="restartQuiz()">
+      🔄 Try Again
+    </button>
+
   </div>
 
   <script>
-    // Prevent going back to quiz
+    // Prevent back navigation
     history.pushState(null, null, location.href);
     window.onpopstate = function () {
       history.pushState(null, null, location.href);
     };
 
-    const score = sessionStorage.getItem("finalScore");
+    const score = parseFloat(sessionStorage.getItem("finalScore"));
+    const correct = parseInt(sessionStorage.getItem("correctCount"));
+    const wrong = parseInt(sessionStorage.getItem("wrongCount"));
+    const unattempted = parseInt(sessionStorage.getItem("unattemptedCount"));
 
-    if (score === null) {
+    if (isNaN(score)) {
       window.location.href = "index.html";
-    } else {
-      document.getElementById("final-score").innerText = `Score: ${score} / 10`;
+    }
+
+    // Set score
+    document.getElementById("final-score").innerText = score.toFixed(2);
+
+    // Set summary
+    document.getElementById("correct-summary").innerText = `${correct} × (+1)`;
+    document.getElementById("wrong-summary").innerText = `${wrong} × (-0.25)`;
+    document.getElementById("unattempted-summary").innerText = `${unattempted}`;
+
+    // Set result message based on score
+    const messageEl = document.getElementById("result-message");
+
+    if (score < 5) {
+      messageEl.innerText = "Better Luck Next Time!";
+      messageEl.style.color = "#e03131"; // red
+    } 
+    else if (score >= 5 && score <= 8) {
+      messageEl.innerText = "Good Effort! Keep Practicing 💪";
+      messageEl.style.color = "#f08c00"; // orange
+    } 
+    else {
+      messageEl.innerText = "Excellent Performance! 🌟";
+      messageEl.style.color = "#2f9e44"; // green
+    }
+
+    function restartQuiz() {
+      sessionStorage.clear();
+      window.location.href = "index.html";
     }
   </script>
 
